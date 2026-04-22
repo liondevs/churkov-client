@@ -1,5 +1,4 @@
 name: Build & Release
-
 on:
   push:
     tags:
@@ -9,32 +8,26 @@ on:
       version:
         description: 'Release version (e.g. 1.0.1)'
         required: true
-
 permissions:
   contents: write
-
 jobs:
   # ─── Windows Build ──────────────────────────────────────────────────────────
   build-windows:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
       - name: Install dependencies
         run: npm ci
-
       - name: Build Windows
         env:
           ELECTRON_BUILDER_PUBLISH: never
           CSC_IDENTITY_AUTO_DISCOVERY: false
         run: npm run build:win
-
       - name: Upload Windows artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -42,28 +35,23 @@ jobs:
           path: |
             dist/*.exe
             dist/latest.yml
-
   # ─── Linux Build ───────────────────────────────────────────────────────────
   build-linux:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
       - name: Install dependencies
         run: npm ci
-
       - name: Build Linux
         env:
           ELECTRON_BUILDER_PUBLISH: never
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build:linux
-
       - name: Upload Linux artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -71,22 +59,20 @@ jobs:
           path: |
             dist/*.AppImage
             dist/latest-linux.yml
-
   # ─── macOS Build ───────────────────────────────────────────────────────────
   build-mac:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-
       - name: Install dependencies
         run: npm ci
-
+      - name: Install dmg-license
+        run: npm install dmg-license
       - name: Build macOS
         env:
           ELECTRON_BUILDER_PUBLISH: never
@@ -98,7 +84,6 @@ jobs:
           # APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
           # APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: npm run build:mac
-
       - name: Upload macOS artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -107,7 +92,6 @@ jobs:
             dist/*.dmg
             dist/*.zip
             dist/latest-mac.yml
-
   # ─── GitHub Release ─────────────────────────────────────────────────────────
   release:
     needs: [build-windows, build-linux, build-mac]
@@ -118,7 +102,6 @@ jobs:
         with:
           path: dist-all
           merge-multiple: true
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
