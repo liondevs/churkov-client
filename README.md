@@ -8,6 +8,9 @@ Includes:
 - **Cross-platform builds** — Windows, Linux, macOS
 - **Firewall auto-config** on Windows for multiplayer
 
+> ⚠️ **License:** This source code is proprietary and all rights are reserved.
+> Viewing is permitted; copying, modifying, or distributing is strictly prohibited.
+> See [LICENSE](./LICENSE) for full terms.
 ---
 
 ## 🚀 Quick Start
