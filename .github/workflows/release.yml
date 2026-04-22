@@ -61,7 +61,7 @@ jobs:
       - name: Build Linux
         env:
           ELECTRON_BUILDER_PUBLISH: never
-        run: npx electron-builder --linux AppImage --x64
+        run: npm run build:linux
 
       - name: Upload Linux artifacts
         uses: actions/upload-artifact@v4
