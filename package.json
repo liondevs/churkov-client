@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Escape from Churkov - 3D Multiplayer Top-Down Extraction Shooter",
   "main": "src/main.js",
-  "author": "Escape from Churkov",
+  "author": {
+    "name": "Escape from Churkov",
+    "email": "liondevelopments1337@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "start": "electron .",
