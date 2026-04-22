@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'
       - name: Set version from input
         if: github.event_name == 'workflow_dispatch'
-        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+        run: node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json')); p.version='${{ github.event.inputs.version }}'; fs.writeFileSync('package.json', JSON.stringify(p, null, 2));"
       - name: Install dependencies
         run: npm ci
       - name: Build Windows
@@ -51,7 +51,7 @@ jobs:
           cache: 'npm'
       - name: Set version from input
         if: github.event_name == 'workflow_dispatch'
-        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+        run: node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json')); p.version='${{ github.event.inputs.version }}'; fs.writeFileSync('package.json', JSON.stringify(p, null, 2));"
       - name: Install dependencies
         run: npm ci
       - name: Build Linux
@@ -78,7 +78,7 @@ jobs:
           cache: 'npm'
       - name: Set version from input
         if: github.event_name == 'workflow_dispatch'
-        run: npm version ${{ github.event.inputs.version }} --no-git-tag-version
+        run: node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('package.json')); p.version='${{ github.event.inputs.version }}'; fs.writeFileSync('package.json', JSON.stringify(p, null, 2));"
       - name: Install dependencies
         run: npm ci
       - name: Install dmg-license

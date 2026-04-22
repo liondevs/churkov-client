@@ -57,12 +57,12 @@
         }
       ],
       "icon": "build/icon.ico",
-      "artifactName": "Escape-from-Churkov-Setup-${version}.${ext}",
       "publisherName": "LionDevs",
       "verifyUpdateCodeSignature": false,
       "requestedExecutionLevel": "asInvoker"
     },
     "nsis": {
+      "artifactName": "Escape-from-Churkov-Setup-${version}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "allowElevation": true,
