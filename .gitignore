@@ -1,0 +1,46 @@
+# ─── Dependencies ────────────────────────────────────────────────────────────
+node_modules/
+
+# ─── Build Output ─────────────────────────────────────────────────────────────
+dist/
+out/
+release/
+
+# ─── Electron Builder Cache ───────────────────────────────────────────────────
+.electron-builder-cache/
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ─── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─── OS Files ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ─── Electron Builder Temp ────────────────────────────────────────────────────
+builder-effective-config.yaml
+builder-debug.yml
+
+# ─── Code Signing ─────────────────────────────────────────────────────────────
+*.p12
+*.pfx
+*.pem
+*.key
+*.cer
