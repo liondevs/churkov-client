@@ -27,6 +27,7 @@ jobs:
         env:
           ELECTRON_BUILDER_PUBLISH: never
           CSC_IDENTITY_AUTO_DISCOVERY: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npm run build:win
       - name: Upload Windows artifacts
         uses: actions/upload-artifact@v4
@@ -77,6 +78,7 @@ jobs:
         env:
           ELECTRON_BUILDER_PUBLISH: never
           CSC_IDENTITY_AUTO_DISCOVERY: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Uncomment and add secrets for code signing:
           # CSC_LINK: ${{ secrets.MAC_CERTIFICATE }}
           # CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
