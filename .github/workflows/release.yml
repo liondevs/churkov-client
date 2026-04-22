@@ -31,7 +31,8 @@ jobs:
 
       - name: Build Windows
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ELECTRON_BUILDER_PUBLISH: never
+          CSC_IDENTITY_AUTO_DISCOVERY: false
         run: npm run build:win
 
       - name: Upload Windows artifacts
@@ -59,7 +60,7 @@ jobs:
 
       - name: Build Linux
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ELECTRON_BUILDER_PUBLISH: never
         run: npm run build:linux
 
       - name: Upload Linux artifacts
@@ -68,7 +69,6 @@ jobs:
           name: linux-build
           path: |
             dist/*.AppImage
-            dist/*.deb
             dist/latest-linux.yml
 
   # ─── macOS Build ───────────────────────────────────────────────────────────
@@ -88,7 +88,8 @@ jobs:
 
       - name: Build macOS
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ELECTRON_BUILDER_PUBLISH: never
+          CSC_IDENTITY_AUTO_DISCOVERY: false
           # Uncomment and add secrets for code signing:
           # CSC_LINK: ${{ secrets.MAC_CERTIFICATE }}
           # CSC_KEY_PASSWORD: ${{ secrets.MAC_CERTIFICATE_PASSWORD }}
