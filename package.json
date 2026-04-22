@@ -90,7 +90,8 @@
       "icon": "build/icons",
       "category": "Game",
       "synopsis": "3D Multiplayer Top-Down Extraction Shooter",
-      "description": "Escape from Churkov - 3D Multiplayer Top-Down Extraction Shooter"
+      "description": "Escape from Churkov - 3D Multiplayer Top-Down Extraction Shooter",
+      "maintainer": "Escape from Churkov <liondevelopments1337@gmail.com>"
     },
     "mac": {
       "target": [
