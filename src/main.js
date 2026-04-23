@@ -3,7 +3,7 @@ const { autoUpdater } = require('electron-updater');
 const path = require('path');
 
 // ─── Configuration ────────────────────────────────────────────────────────────
-const GAME_URL = 'https://lion.zone.id/';
+const GAME_URL = 'http://localhost:3000/';
 const IS_DEV = process.argv.includes('--dev');
 const UPDATE_CHECK_INTERVAL = 30 * 60 * 1000; // 30 minutes
 
